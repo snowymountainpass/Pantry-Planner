@@ -3,13 +3,15 @@ import './App.css';
 import React from "react";
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Landing from "../src/pages/Landing";
+import Pantry from "../src/pages/Pantry";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path={"/"} element={<Landing/>}/>
+          <Route path="/" element={<Landing/>}/>
+          <Route path="/pantry" element={<Pantry/>}/>
         </Routes>
       </BrowserRouter>
 

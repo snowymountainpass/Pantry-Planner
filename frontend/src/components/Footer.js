@@ -1,7 +1,6 @@
 import React from 'react';
 import {createStyles, Container, Group, ActionIcon, Text} from '@mantine/core';
 import { BrandTwitter, BrandYoutube, BrandInstagram } from 'tabler-icons-react';
-// import HomePantry  from '../../src/assets/img/HomePantry.png';
 
 
 const useStyles = createStyles((theme) => ({

@@ -1,14 +1,8 @@
 import React from 'react';
 import {
-    Container,
-    Grid,
-    SimpleGrid,
-    Skeleton,
     useMantineTheme,
-    MantineProvider,
     AppShell,
-    Center,
-    Text, Stack, Button
+    Text, Stack,
 } from '@mantine/core';
 
 import {HeaderResponsive} from "../components/Header";
@@ -19,7 +13,6 @@ import {Footer} from "../components/Footer";
 export default function Landing(){
 
     const theme = useMantineTheme();
-    // const [opened, setOpened] = useState(false);
 
     return(
 
@@ -35,27 +28,7 @@ export default function Landing(){
                 <Footer/>
             }
             header={
-                <HeaderResponsive links={
-                        [
-                            {
-                                "link": "/",
-                                "label": "Home"
-                            },
-                            {
-                                "link": "/pantry",
-                                "label": "Pantry"
-                            },
-                            {
-                                "link": "/recipes",
-                                "label": "Recipes"
-                            },
-                            {
-                                "link": "/account",
-                                "label": "Account"
-                            }
-                        ]
-                    }
-                />
+                <HeaderResponsive/>
             }
         >
             <Stack justify="space-around" spacing="sm" sx={() => ({ height: 300 })}>
@@ -63,11 +36,7 @@ export default function Landing(){
                 <SearchInput/>
             </Stack>
 
-
-
         </AppShell>
-
-
 
     );
 

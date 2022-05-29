@@ -80,10 +80,44 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface HeaderResponsiveProps {
-    links: { link: string; label: string }[];
+    // links: { link: string; label: string }[];
+    links: [{
+        "link": "/",
+        "label": "Home"
+        },
+        {
+            "link": "/pantry",
+            "label": "Pantry"
+        },
+        {
+            "link": "/recipes",
+            "label": "Recipes"
+        },
+        {
+            "link": "/account",
+            "label": "Account"
+        }];
 }
 
-export function HeaderResponsive({ links }: HeaderResponsiveProps) {
+export function HeaderResponsive() {
+
+   const links = [{
+        "link": "/",
+        "label": "Home"
+    },
+        {
+            "link": "/pantry",
+            "label": "Pantry"
+        },
+        {
+            "link": "/recipes",
+            "label": "Recipes"
+        },
+        {
+            "link": "/account",
+            "label": "Account"
+        }];
+
     const [opened, toggleOpened] = useBooleanToggle(false);
     const [active, setActive] = useState(links[0].link);
     const { classes, cx } = useStyles();
@@ -94,7 +128,7 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
             href={link.link}
             className={cx(classes.link, { [classes.linkActive]: active === link.link })}
             onClick={(event) => {
-                event.preventDefault();
+                // event.preventDefault();
                 setActive(link.link);
                 toggleOpened(false);
             }}
