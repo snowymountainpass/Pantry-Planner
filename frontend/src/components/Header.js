@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { createStyles, Header, Container, Group, Burger, Paper, Transition } from '@mantine/core';
 import { useBooleanToggle } from '@mantine/hooks';
-// import { MantineLogo } from '../../shared/MantineLogo';
 import HomePantry  from '../../src/assets/img/HomePantry.png';
 
-const HEADER_HEIGHT = 75;
+const HEADER_HEIGHT = 95;
 
 const useStyles = createStyles((theme) => ({
     root: {
         position: 'relative',
         zIndex: 1,
+        backgroundColor:theme.colors.blue[9]
     },
 
     dropdown: {
@@ -53,8 +53,9 @@ const useStyles = createStyles((theme) => ({
         padding: '8px 12px',
         borderRadius: theme.radius.sm,
         textDecoration: 'none',
-        color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
-        fontSize: theme.fontSizes.md,
+        // color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
+        color: theme.colorScheme === 'dark' ? theme.colors.blue[5] : theme.colors.red[7],
+        fontSize: theme.fontSizes.lg,
         fontWeight: 500,
 
         '&:hover': {
@@ -103,9 +104,10 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
     ));
 
     return (
-        <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
+        // <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
+        <Header height={HEADER_HEIGHT} mb={0} className={classes.root}>
             <Container className={classes.header}>
-                <img src = {HomePantry} alt="HomePantry.png" height="75" />
+                <img src = {HomePantry} alt="HomePantry.png" height="95" />
                 <Group spacing={5} className={classes.links}>
                     {items}
                 </Group>
