@@ -107,7 +107,7 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
         // <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
         <Header height={HEADER_HEIGHT} mb={0} className={classes.root}>
             <Container className={classes.header}>
-                <img src = {HomePantry} alt="HomePantry.png" height="95" />
+                <img src = {HomePantry} alt="HomePantry.png" height="94" />
                 <Group spacing={5} className={classes.links}>
                     {items}
                 </Group>
