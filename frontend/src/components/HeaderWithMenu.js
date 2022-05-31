@@ -79,6 +79,11 @@ const useStyles = createStyles((theme) => ({
             color: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 3 : 7],
         },
     },
+
+    linkLabel: {
+        marginRight: 5,
+    },
+
 }));
 
 
@@ -98,43 +103,20 @@ export function HeaderWithMenu() {
             "label": "Recipes"
         },
         {
-            "link": "/account",
-            "label": "Account",
-            "links": [
-                {
-                    "link": "/signup",
-                    "label": "Sign-Up"
-                },
-                {
-                    "link": "/signin",
-                    "label": "Sign-In"
-                },
-                {
-                    "link": "/signout",
-                    "label": "Sign-Out"
-                }
-            ]
-        }
+            "link": "/sign-in",
+            "label": "Sign In"
+        },
+        {
+            "link": "/sign-up",
+            "label": "Register"
+        },
+
     ];
 
     const [opened, toggleOpened] = useBooleanToggle(false);
     const [active, setActive] = useState(links[0].link);
     const {classes, cx} = useStyles();
 
-    // const items = links.map((link) => (
-    //     <a
-    //         key={link.label}
-    //         href={link.link}
-    //         className={cx(classes.link, {[classes.linkActive]: active === link.link})}
-    //         onClick={(event) => {
-    //             // event.preventDefault();
-    //             setActive(link.link);
-    //             toggleOpened(false);
-    //         }}
-    //     >
-    //         {link.label}
-    //     </a>
-    // ));
 
     const itemsWM = links.map((link) => {
         const menuItems = link.links?.map((item) => (
@@ -154,7 +136,7 @@ export function HeaderWithMenu() {
                         <a
                             href={link.link}
                             className={classes.link}
-                            // onClick={(event) => setActive((link.link))}
+                            // onClick={(event) => event.preventDefault()}
                         >
                             <Center>
                                 <span className={classes.linkLabel}>{link.label}</span>
@@ -167,7 +149,6 @@ export function HeaderWithMenu() {
                 </Menu>
             );
         }
-
         return (
             <a
                 key={link.label}
@@ -182,7 +163,6 @@ export function HeaderWithMenu() {
 
 
     return (
-        // <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
         <Header height={HEADER_HEIGHT} mb={0} className={classes.root}>
             <Container className={classes.header}>
                 <img src={HomePantry} alt="HomePantry.png" height="94"/>
