@@ -164,9 +164,7 @@ export default function PantryTable(){
 
 
 //TODO: 1) DELETE ROW => https://stackoverflow.com/questions/69384072/how-to-delete-multiple-selected-rows-in-material-ui-datagrid
-//TODO: 2) INCREASE QUANTITY (adaugat buton - done; functionalitate)
-//TODO: 3) DECREASE QUANTITY (adaugat buton - done; functionalitate)
-//TODO: 4) DATE-PICKER => cand Expira Produsul
+
 
 // <Box
 //     sx={{
