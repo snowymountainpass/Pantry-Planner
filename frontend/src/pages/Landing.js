@@ -2,7 +2,7 @@ import React from 'react';
 import {
     useMantineTheme,
     AppShell,
-    Text, Stack,
+    Text, Stack, Center,
 } from '@mantine/core';
 
 import {HeaderResponsive} from "../components/Header";
@@ -31,10 +31,13 @@ export default function Landing(){
                 <HeaderResponsive/>
             }
         >
-            <Stack justify="space-around" spacing="sm" sx={() => ({ height: 300 })}>
-                <Text style={{fontSize:"xxx-large",fontWeight:"bold"}}>Enter a recipe name or search for an ingredient</Text>
-                <SearchInput/>
-            </Stack>
+            <Center>
+                <Stack justify="space-around" spacing="sm" sx={() => ({ height: 300 })}>
+                    <Text style={{fontSize:"xxx-large",fontWeight:"bold"}}>Enter a recipe name or search for an ingredient</Text>
+                    <SearchInput/>
+                </Stack>
+            </Center>
+
 
         </AppShell>
 

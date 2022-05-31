@@ -79,25 +79,7 @@ const useStyles = createStyles((theme) => ({
     },
 }));
 
-interface HeaderResponsiveProps {
-    // links: { link: string; label: string }[];
-    links: [{
-        "link": "/",
-        "label": "Home"
-        },
-        {
-            "link": "/pantry",
-            "label": "Pantry"
-        },
-        {
-            "link": "/recipes",
-            "label": "Recipes"
-        },
-        {
-            "link": "/account",
-            "label": "Account"
-        }];
-}
+
 
 export function HeaderResponsive() {
 
