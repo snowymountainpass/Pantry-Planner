@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
-import {Burger, Container, createStyles, Group, Header, Paper, Transition} from '@mantine/core';
-import {useBooleanToggle} from '@mantine/hooks';
-import HomePantry from '../../src/assets/img/HomePantry.png';
+import React from 'react';
+import {createStyles, Header, Menu, Group, Center, Burger, Container, Paper, Transition} from '@mantine/core';
+import { useBooleanToggle } from '@mantine/hooks';
+import { ChevronDown } from 'tabler-icons-react';
+import HomePantry from "../assets/img/HomePantry.png";
+import {useState} from "react";
 
 const HEADER_HEIGHT = 95;
 
@@ -80,7 +82,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 
-export function HeaderResponsive() {
+export function HeaderWithMenu() {
 
     const links = [
         {
@@ -119,20 +121,65 @@ export function HeaderResponsive() {
     const [active, setActive] = useState(links[0].link);
     const {classes, cx} = useStyles();
 
-    const items = links.map((link) => (
-        <a
-            key={link.label}
-            href={link.link}
-            className={cx(classes.link, {[classes.linkActive]: active === link.link})}
-            onClick={(event) => {
-                // event.preventDefault();
-                // setActive(link.link);
-                toggleOpened(false);
-            }}
-        >
-            {link.label}
-        </a>
-    ));
+    // const items = links.map((link) => (
+    //     <a
+    //         key={link.label}
+    //         href={link.link}
+    //         className={cx(classes.link, {[classes.linkActive]: active === link.link})}
+    //         onClick={(event) => {
+    //             // event.preventDefault();
+    //             setActive(link.link);
+    //             toggleOpened(false);
+    //         }}
+    //     >
+    //         {link.label}
+    //     </a>
+    // ));
+
+    const itemsWM = links.map((link) => {
+        const menuItems = link.links?.map((item) => (
+            <Menu.Item key={item.link}>{item.label}</Menu.Item>
+        ));
+
+        if (menuItems) {
+            return (
+                <Menu
+                    key={link.label}
+                    trigger="hover"
+                    delay={0}
+                    transitionDuration={0}
+                    placement="end"
+                    gutter={1}
+                    control={
+                        <a
+                            href={link.link}
+                            className={classes.link}
+                            // onClick={(event) => setActive((link.link))}
+                        >
+                            <Center>
+                                <span className={classes.linkLabel}>{link.label}</span>
+                                <ChevronDown size={12} />
+                            </Center>
+                        </a>
+                    }
+                >
+                    {menuItems}
+                </Menu>
+            );
+        }
+
+        return (
+            <a
+                key={link.label}
+                href={link.link}
+                className={classes.link}
+            >
+                {link.label}
+            </a>
+        );
+    });
+
+
 
     return (
         // <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
@@ -140,7 +187,7 @@ export function HeaderResponsive() {
             <Container className={classes.header}>
                 <img src={HomePantry} alt="HomePantry.png" height="94"/>
                 <Group spacing={5} className={classes.links}>
-                    {items}
+                    {itemsWM}
                 </Group>
 
                 <Burger
@@ -153,7 +200,7 @@ export function HeaderResponsive() {
                 <Transition transition="pop-top-right" duration={200} mounted={opened}>
                     {(styles) => (
                         <Paper className={classes.dropdown} withBorder style={styles}>
-                            {items}
+                            {itemsWM}
                         </Paper>
                     )}
                 </Transition>

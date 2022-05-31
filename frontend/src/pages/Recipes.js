@@ -4,8 +4,9 @@
 
 import {AppShell, useMantineTheme} from "@mantine/core";
 import {Footer} from "../components/Footer";
-import {HeaderResponsive} from "../components/Header";
 import RecipesTable from "../components/RecipesTable";
+import {HeaderWithMenu} from "../components/HeaderWithMenu";
+import React from "react";
 
 export default function Recipes() {
 
@@ -25,27 +26,7 @@ export default function Recipes() {
                 <Footer/>
             }
             header={
-                <HeaderResponsive links={
-                    [
-                        {
-                            "link": "/",
-                            "label": "Home"
-                        },
-                        {
-                            "link": "/pantry",
-                            "label": "Pantry"
-                        },
-                        {
-                            "link": "/recipes",
-                            "label": "Recipes"
-                        },
-                        {
-                            "link": "/account",
-                            "label": "Account"
-                        }
-                    ]
-                }
-                />
+                <HeaderWithMenu/>
             }
         >
 

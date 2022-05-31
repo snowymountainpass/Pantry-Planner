@@ -1,7 +1,8 @@
 import {AppShell, Stack, useMantineTheme} from "@mantine/core";
 import {Footer} from "../components/Footer";
-import {HeaderResponsive} from "../components/Header";
 import PantryTable from "../components/PantryTable";
+import {HeaderWithMenu} from "../components/HeaderWithMenu";
+import React from "react";
 
 export default function Pantry() {
     const theme = useMantineTheme();
@@ -20,27 +21,7 @@ export default function Pantry() {
                 <Footer/>
             }
             header={
-                <HeaderResponsive links={
-                    [
-                        {
-                            "link": "/",
-                            "label": "Home"
-                        },
-                        {
-                            "link": "/pantry",
-                            "label": "Pantry"
-                        },
-                        {
-                            "link": "/recipes",
-                            "label": "Recipes"
-                        },
-                        {
-                            "link": "/account",
-                            "label": "Account"
-                        }
-                    ]
-                }
-                />
+                <HeaderWithMenu/>
             }
         >
 

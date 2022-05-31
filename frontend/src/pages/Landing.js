@@ -5,9 +5,9 @@ import {
     Text, Stack, Center,
 } from '@mantine/core';
 
-import {HeaderResponsive} from "../components/Header";
 import {SearchInput} from "../components/SearchInput";
 import {Footer} from "../components/Footer";
+import {HeaderWithMenu} from "../components/HeaderWithMenu";
 
 
 export default function Landing(){
@@ -28,7 +28,7 @@ export default function Landing(){
                 <Footer/>
             }
             header={
-                <HeaderResponsive/>
+                <HeaderWithMenu/>
             }
         >
             <Center>
